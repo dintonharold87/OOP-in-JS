@@ -136,3 +136,33 @@ console.log(person99.firstname);
 console.log(person99.getDetails_noaccess);
 console.log(person99.getDetails_access());
 /* In the above example we try to access some property(person1.firstname) and functions(person1.getDetails_noaccess) but it returns undefine while their is a method which we can access from the person object(person1.getDetails_access()), by changing the way to define a function we can restrict its scope. */
+
+
+
+// ###############
+// INHERITANCE
+// ###############
+
+/* Inheritance – It is a concept in which some property and methods of an Object is being used by another Object. Unlike most of the OOP languages where classes inherit classes, JavaScript Object inherits Object i.e. certain features (property and methods)of one object can be reused by other Objects.  */
+
+class person69{
+    constructor(name){
+        this.name = name;
+    }
+    //method to return the string
+    toString(){
+        return (`Name of person: ${this.name}`);
+    }
+}
+class student extends person69{
+    constructor(name,id){
+        //super keyword to for calling above class constructor
+        super(name);
+        this.id = id;
+    }
+    toString(){
+        return (`${super.toString()},Student ID: ${this.id}`);
+    }
+}
+let student1 = new student('Mukul',22);
+console.log(student1.toString());
